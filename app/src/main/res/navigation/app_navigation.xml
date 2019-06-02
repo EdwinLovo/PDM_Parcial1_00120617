@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/app_navigation"
+            app:startDestination="@id/destination_all_games">
+
+    <fragment
+        android:id="@+id/destination_all_games"
+        android:name="com.pdm.parcial1.Fragments.AllGamesFragment"
+        android:label="All Games"
+        tools:layout="@layout/fragment_all_games" />
+    <fragment
+        android:id="@+id/destination_game"
+        android:name="com.pdm.parcial1.Fragments.GameFragment"
+        android:label="Game"
+        tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/destination_live_games"
+        android:name="com.pdm.parcial1.Fragments.LiveGamesFragment"
+        android:label="Live Games"
+        tools:layout="@layout/fragment_live_games" />
+    <fragment
+        android:id="@+id/destination_new_game"
+        android:name="com.pdm.parcial1.Fragments.NewGameFragment"
+        android:label="New Game"
+        tools:layout="@layout/fragment_new_game" />
+</navigation>
