@@ -8,7 +8,10 @@
         android:id="@+id/destination_all_games"
         android:name="com.pdm.parcial1.Fragments.AllGamesFragment"
         android:label="All Games"
-        tools:layout="@layout/fragment_all_games" />
+        tools:layout="@layout/fragment_all_games" >
+        <action android:id="@+id/next_action"
+                app:destination="@id/destination_game"/>
+    </fragment>
     <fragment
         android:id="@+id/destination_game"
         android:name="com.pdm.parcial1.Fragments.GameFragment"
@@ -18,7 +21,10 @@
         android:id="@+id/destination_live_games"
         android:name="com.pdm.parcial1.Fragments.LiveGamesFragment"
         android:label="Live Games"
-        tools:layout="@layout/fragment_live_games" />
+        tools:layout="@layout/fragment_live_games" >
+        <action android:id="@+id/next_action"
+                app:destination="@id/destination_game"/>
+    </fragment>
     <fragment
         android:id="@+id/destination_new_game"
         android:name="com.pdm.parcial1.Fragments.NewGameFragment"
