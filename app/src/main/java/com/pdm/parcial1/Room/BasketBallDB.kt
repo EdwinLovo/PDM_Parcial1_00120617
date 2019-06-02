@@ -48,9 +48,9 @@ abstract  class BasketBallDB:RoomDatabase() {
         suspend fun populateDatabase(matchDao: MatchDao){
             matchDao.deleteAll()
 
-            var match = Match("Barcelona", "Real Madrid", 3, 0, "unknown", 1)
+            var match = Match("Barcelona", "Real Madrid", 3, 0, "unknown", 1, "14:30", "20/05/2019")
             matchDao.insert(match)
-            match = Match("Ajax", "Porto", 2, 2, "unknown", 0)
+            match = Match("Ajax", "Porto", 2, 2, "unknown", 0, "12:00", "20/05/2015")
             matchDao.insert(match)
         }
     }

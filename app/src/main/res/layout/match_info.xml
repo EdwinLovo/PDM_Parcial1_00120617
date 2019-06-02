@@ -138,7 +138,6 @@
             android:background="@color/colorAccent"
             android:text="FINISHED"/>
 
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

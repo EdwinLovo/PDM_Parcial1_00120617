@@ -5,10 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.AllGamesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allMatchesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="all games" />
-
+        android:layout_height="match_parent"/>
 </FrameLayout>

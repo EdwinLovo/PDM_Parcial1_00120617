@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.pdm.parcial1.R
+import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
 
@@ -19,5 +20,20 @@ class GameFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        arguments?.let {
+            val safeArgs = GameFragmentArgs.fromBundle(it)
+            localName.text = safeArgs.localName
+            visitorName.text = safeArgs.visitorName
+            localScore.text = safeArgs.localScore
+            visitorScore.text = safeArgs.visitorScore
+            date.text = safeArgs.date
+            time.text = safeArgs.time
+            winner.text = safeArgs.winner
+            stateButton.text = safeArgs.state
+        }
+    }
 
 }

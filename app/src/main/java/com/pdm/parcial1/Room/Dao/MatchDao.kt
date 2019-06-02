@@ -13,10 +13,10 @@ interface MatchDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(match: Match)
 
-    @Query("select * from `match`")
+    @Query("select * from `match` order by date desc")
     fun getAllMatches():LiveData<List<Match>>
 
-    @Query("select * from `match` where state=1")
+    @Query("select * from `match` where state=1 order by date desc")
     fun getLiveMatches():LiveData<List<Match>>
 
     @Query("delete from `match`")

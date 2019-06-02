@@ -1,5 +1,6 @@
 package com.pdm.parcial1.Room.Entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -23,7 +24,13 @@ data class Match(
         var winner:String = "unknown",
 
         @ColumnInfo(name = "state")
-        var state:Int
+        var state:Int,
+
+        @ColumnInfo(name = "time")
+        var time:String,
+
+        @ColumnInfo(name = "date")
+        var date:String
 
 ) {
     @PrimaryKey(autoGenerate = true)

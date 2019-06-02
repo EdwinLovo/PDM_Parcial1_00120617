@@ -16,7 +16,32 @@
         android:id="@+id/destination_game"
         android:name="com.pdm.parcial1.Fragments.GameFragment"
         android:label="Game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="localName"
+            app:argType="string" />
+        <argument
+            android:name="visitorName"
+            app:argType="string" />
+        <argument
+            android:name="localScore"
+            app:argType="string" />
+        <argument
+            android:name="visitorScore"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument
+            android:name="winner"
+            app:argType="string" />
+        <argument
+            android:name="state"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/destination_live_games"
         android:name="com.pdm.parcial1.Fragments.LiveGamesFragment"
@@ -29,5 +54,9 @@
         android:id="@+id/destination_new_game"
         android:name="com.pdm.parcial1.Fragments.NewGameFragment"
         android:label="New Game"
-        tools:layout="@layout/fragment_new_game" />
+        tools:layout="@layout/fragment_new_game" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_game" />
+    </fragment>
 </navigation>
