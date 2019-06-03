@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pdm.parcial1.Adapters.AllMatchesAdapter
 
@@ -33,27 +34,31 @@ class AllGamesFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
         var adapter = object : AllMatchesAdapter(view.context){
-            override fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match) {
+            override fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match, winner:String) {
                 holder.container.setOnClickListener {
                     if (match.state==1){
                         val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString(),match.id.toString())
                         Navigation.findNavController(it).navigate(nextAction)
                     } else {
-                        val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, match.winner,match.state.toString())
+                        val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, winner,match.state.toString())
                         Navigation.findNavController(it).navigate(nextAction)
                     }
                 }
 
-                if (match.state==1){
+                /*if (match.state==1){
                     holder.state.setOnClickListener {
                         viewModel.updateMatchState(match.id,0)
                     }
-                }
+                }*/
             }
         }
         val recyclerView = view.allMatchesRecyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(view.context)
+
+        if (resources.configuration.orientation==2){
+            recyclerView.layoutManager = GridLayoutManager(view.context,2)
+        }
 
         viewModel.allMatches.observe(this, Observer {matches ->
             matches?.let { adapter.setMatches(it) }

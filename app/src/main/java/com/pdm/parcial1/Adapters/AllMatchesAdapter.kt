@@ -18,7 +18,7 @@ abstract class AllMatchesAdapter internal constructor(context: Context):Recycler
     private val inflater = LayoutInflater.from(context)
     private var matches = emptyList<Match>()
 
-    abstract fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match)
+    abstract fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match, winner:String)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllMatchesViewHolder {
         val itemView = inflater.inflate(R.layout.match_info, parent,false)
@@ -30,22 +30,34 @@ abstract class AllMatchesAdapter internal constructor(context: Context):Recycler
     override fun onBindViewHolder(holder: AllMatchesViewHolder, position: Int) {
         val currentMatch = matches[position]
 
+        var matchWinner:String
+
+        if (currentMatch.localScore>currentMatch.visitorScore){
+            matchWinner = currentMatch.local
+        } else if (currentMatch.localScore<currentMatch.visitorScore){
+            matchWinner = currentMatch.visitor
+        } else {
+            matchWinner = "Draw"
+        }
+
         holder.localName.text = currentMatch.local
         holder.visitorName.text = currentMatch.visitor
         holder.localScore.text = currentMatch.localScore.toString()
         holder.visitorScore.text = currentMatch.visitorScore.toString()
         holder.date.text = currentMatch.date
         holder.time.text = currentMatch.time
-        holder.winner.text = currentMatch.winner
+
         if (currentMatch.state==1){
+            holder.winner.text = "Winner: Unknown yet"
             holder.state.text = "LIVE"
-            holder.state.isEnabled = true
+            //holder.state.isEnabled = true
         } else {
+            holder.winner.text = "Winner: ${matchWinner}"
             holder.state.text = "FINISHED"
-            holder.state.isEnabled = false
+            //holder.state.isEnabled = false
         }
 
-        setClickListenerToMatch(holder,currentMatch)
+        setClickListenerToMatch(holder,currentMatch, matchWinner)
     }
 
     inner class AllMatchesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){

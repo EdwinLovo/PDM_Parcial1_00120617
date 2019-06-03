@@ -6,11 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
         tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        app:titleTextColor="@color/mainWhite"
         android:layout_height="wrap_content"
         android:background="?colorPrimary" />
 
@@ -28,6 +30,9 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/mainGray"
+        app:itemTextColor="@color/colorAccentDark"
+        app:itemIconTint="@color/colorAccentDark"
         app:menu="@menu/navigation_menu"/>
 
 

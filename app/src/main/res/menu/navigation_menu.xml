@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/destination_all_games"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@mipmap/bkb"
         android:title="All Games"/>
     <item
         android:id="@+id/destination_live_games"
-        android:icon="@drawable/ic_history_black_24dp"
+        android:icon="@mipmap/live"
         android:title="Live Games"/>
     <item
         android:id="@+id/destination_new_game"
-        android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:icon="@mipmap/add"
         android:title="New Game"/>
 
 </menu>

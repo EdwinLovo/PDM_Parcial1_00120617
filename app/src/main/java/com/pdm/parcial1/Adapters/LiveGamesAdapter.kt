@@ -36,8 +36,8 @@ abstract class LiveGamesAdapter internal constructor(context: Context):RecyclerV
         holder.visitorScore.text = currentMatch.visitorScore.toString()
         holder.date.text = currentMatch.date
         holder.time.text = currentMatch.time
-        holder.winner.text = currentMatch.winner
-        holder.state.text = "LIVE"
+        holder.winner.text = "Winner: Unknown yet"
+        holder.state.text = "END GAME"
 
         setClickListenerToLiveGames(holder,currentMatch)
     }

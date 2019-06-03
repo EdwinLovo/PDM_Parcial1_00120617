@@ -39,8 +39,8 @@ class LiveGameFragment : Fragment() {
             visitorScore.text = safeArgs.visitorScore
             date.text = safeArgs.date
             time.text = safeArgs.time
-            winner.text = safeArgs.winner
-            stateButton.text = safeArgs.state
+            winner.text = "Winner: Unkown yet"
+            stateButton.text = "END GAME"
             idMatch = safeArgs.idMatch.toInt()
         }
 

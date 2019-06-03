@@ -18,6 +18,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            app:titleTextColor="@color/mainWhite"
             android:background="?colorPrimary" />
 
         <fragment
@@ -36,6 +38,7 @@
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:background="@color/mainWhite"
         android:layout_gravity="start"
         app:menu="@menu/navigation_menu" />
 

@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     card_view:cardCornerRadius="12dp"
+    android:background="@color/colorPrimaryDark"
     card_view:cardElevation="10dp"
     card_view:contentPadding="4dp">
 
@@ -27,6 +28,7 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:id="@+id/date"
+                android:fontFamily="@font/golden_sans_light"
                 android:textAllCaps="true"
                 android:textSize="20sp"
                 android:layout_margin="16dp"
@@ -39,6 +41,7 @@
                 android:gravity="right"
                 android:id="@+id/time"
                 android:textAllCaps="true"
+                android:fontFamily="@font/golden_sans_light"
                 android:textSize="20sp"
                 android:layout_margin="16dp"
                 android:text="14:30"/>
@@ -61,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
                     android:layout_margin="8dp"
+                    android:fontFamily="@font/golden_sans_bold"
                     android:gravity="center"
                     android:text="Local"/>
 
@@ -70,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:layout_margin="8dp"
+                    android:fontFamily="@font/golden_sans_medium"
                     android:gravity="center"
                     android:text="Lakers"/>
 
@@ -78,6 +83,7 @@
                     android:id="@+id/localScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/golden_sans"
                     android:textSize="25sp"
                     android:layout_margin="8dp"
                     android:gravity="center"
@@ -97,6 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
+                    android:fontFamily="@font/golden_sans_bold"
                     android:layout_margin="8dp"
                     android:gravity="center"
                     android:text="Visitor"/>
@@ -109,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="25sp"
                     android:layout_margin="8dp"
+                    android:fontFamily="@font/golden_sans_medium"
                     android:gravity="center"
                     android:text="Heat"/>
 
@@ -116,6 +124,7 @@
                     android:id="@+id/visitorScore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/golden_sans"
                     android:textSize="25sp"
                     android:layout_margin="8dp"
                     android:gravity="center"
@@ -132,16 +141,12 @@
             android:id="@+id/winner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:fontFamily="@font/golden_sans_bold"
+            android:layout_margin="16dp"
+            android:textSize="30sp"
             android:gravity="center"
             android:text="Winner: Heat"/>
 
-        <Button
-            android:id="@+id/stateButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="FINISHED"/>
 
 
     </LinearLayout>

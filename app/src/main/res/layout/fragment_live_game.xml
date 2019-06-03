@@ -6,186 +6,213 @@
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
     card_view:cardCornerRadius="12dp"
+    android:background="@color/colorPrimaryDark"
     card_view:cardElevation="10dp"
     card_view:contentPadding="4dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="8dp"
-        android:id="@+id/matchContainer">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="left"
-                android:id="@+id/date"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:layout_margin="16dp"
-                android:text="01/06/2019"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:id="@+id/time"
-                android:textAllCaps="true"
-                android:textSize="20sp"
-                android:layout_margin="16dp"
-                android:text="14:30"/>
-        </LinearLayout>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:orientation="vertical"
+            android:layout_margin="8dp"
+            android:id="@+id/matchContainer">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="Local"/>
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:id="@+id/date"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/golden_sans_light"
+                    android:layout_margin="16dp"
+                    android:text="01/06/2019"/>
 
                 <TextView
-                    android:id="@+id/localName"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="Lakers"/>
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:id="@+id/time"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:layout_margin="16dp"
+                    android:fontFamily="@font/golden_sans_light"
 
-
-                <TextView
-                    android:id="@+id/localScore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="0"/>
-
-                <Button
-                    android:id="@+id/localPlus3"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+3"/>
-
-                <Button
-                    android:id="@+id/localPlus2"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+2"/>
-
-                <Button
-                    android:id="@+id/localPlus1"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+1"/>
-
+                    android:text="14:30"/>
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
 
-
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="Visitor"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/golden_sans_bold"
+                        android:gravity="center"
+                        android:text="Local"/>
+
+                    <TextView
+                        android:id="@+id/localName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/golden_sans_medium"
+                        android:gravity="center"
+                        android:text="Lakers"/>
 
 
+                    <TextView
+                        android:id="@+id/localScore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/golden_sans"
+                        android:gravity="center"
+                        android:text="0"/>
 
-                <TextView
-                    android:id="@+id/visitorName"
-                    android:layout_width="match_parent"
+                    <Button
+                        android:id="@+id/localPlus3"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+3"/>
+
+                    <Button
+                        android:id="@+id/localPlus2"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+2"/>
+
+                    <Button
+                        android:id="@+id/localPlus1"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+1"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="Heat"/>
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/visitorScore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="0"/>
 
-                <Button
-                    android:id="@+id/visitorPlus3"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+3"/>
 
-                <Button
-                    android:id="@+id/visitorPlus2"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+2"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:layout_margin="8dp"
+                        android:fontFamily="@font/golden_sans_bold"
+                        android:gravity="center"
+                        android:text="Visitor"/>
 
-                <Button
-                    android:id="@+id/visitorPlus1"
-                    android:layout_gravity="center"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="+1"/>
+
+
+                    <TextView
+                        android:id="@+id/visitorName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/golden_sans_medium"
+                        android:layout_margin="8dp"
+                        android:gravity="center"
+                        android:text="Heat"/>
+
+                    <TextView
+                        android:id="@+id/visitorScore"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/golden_sans"
+                        android:layout_margin="8dp"
+                        android:gravity="center"
+                        android:text="0"/>
+
+                    <Button
+                        android:id="@+id/visitorPlus3"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+3"/>
+
+                    <Button
+                        android:id="@+id/visitorPlus2"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+2"/>
+
+                    <Button
+                        android:id="@+id/visitorPlus1"
+                        android:layout_gravity="center"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/golden_sans"
+                        android:text="+1"/>
+
+                </LinearLayout>
+
+
 
             </LinearLayout>
 
+
+            <TextView
+                android:id="@+id/winner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/golden_sans_bold"
+                android:gravity="center"
+                android:text="Winner: Heat"/>
+
+            <Button
+                android:id="@+id/stateButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:textSize="25sp"
+                android:background="@drawable/button_ripple2"
+                android:fontFamily="@font/golden_sans_medium"
+                android:text="FINISHED"/>
 
 
         </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/winner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:text="Winner: Heat"/>
-
-        <Button
-            android:id="@+id/stateButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:text="FINISHED"/>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.cardview.widget.CardView>

@@ -32,7 +32,6 @@ class GameFragment : Fragment() {
             date.text = safeArgs.date
             time.text = safeArgs.time
             winner.text = safeArgs.winner
-            stateButton.text = safeArgs.state
         }
     }
 
