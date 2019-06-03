@@ -1,4 +1,4 @@
-package com.pdm.parcial1.Fragments
+package com.pdm.parcial1.UI.Fragments
 
 
 import android.os.Bundle

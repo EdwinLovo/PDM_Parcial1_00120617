@@ -1,7 +1,6 @@
-package com.pdm.parcial1.Adapters
+package com.pdm.parcial1.UI.Adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +36,7 @@ abstract class LiveGamesAdapter internal constructor(context: Context):RecyclerV
         holder.date.text = currentMatch.date
         holder.time.text = currentMatch.time
         holder.winner.text = "Winner: Unknown yet"
-        holder.state.text = "END GAME"
+        holder.state.text = "END MATCH"
 
         setClickListenerToLiveGames(holder,currentMatch)
     }

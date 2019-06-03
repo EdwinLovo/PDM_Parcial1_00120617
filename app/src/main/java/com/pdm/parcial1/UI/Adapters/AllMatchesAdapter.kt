@@ -1,11 +1,11 @@
-package com.pdm.parcial1.Adapters
+package com.pdm.parcial1.UI.Adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -70,6 +70,7 @@ abstract class AllMatchesAdapter internal constructor(context: Context):Recycler
         val winner:TextView = itemView.winner
         val state:Button = itemView.stateButton
         val container:LinearLayout = itemView.matchContainer
+        val deleteButton:ImageButton = itemView.deleteButton
     }
 
     internal fun setMatches(matches:List<Match>){

@@ -1,4 +1,4 @@
-package com.pdm.parcial1.Fragments
+package com.pdm.parcial1.UI.Fragments
 
 
 import android.os.Bundle
@@ -6,12 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pdm.parcial1.Adapters.AllMatchesAdapter
+import com.pdm.parcial1.UI.Adapters.AllMatchesAdapter
 
 import com.pdm.parcial1.R
 import com.pdm.parcial1.Room.Entities.Match
@@ -43,6 +44,11 @@ class AllGamesFragment : Fragment() {
                         val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, winner,match.state.toString())
                         Navigation.findNavController(it).navigate(nextAction)
                     }
+                }
+
+                holder.deleteButton.setOnClickListener {
+                    viewModel.deleteMatch(match.id)
+                    Toast.makeText(it.context, "Match deleted", Toast.LENGTH_LONG).show()
                 }
 
                 /*if (match.state==1){

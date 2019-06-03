@@ -1,7 +1,6 @@
 package com.pdm.parcial1.Room
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -12,7 +11,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Match::class], version = 3, exportSchema = false)
+@Database(entities = [Match::class], version = 7, exportSchema = false)
 abstract  class BasketBallDB:RoomDatabase() {
 
     abstract fun matchDao():MatchDao
@@ -34,5 +33,6 @@ abstract  class BasketBallDB:RoomDatabase() {
             }
         }
     }
+
 
 }

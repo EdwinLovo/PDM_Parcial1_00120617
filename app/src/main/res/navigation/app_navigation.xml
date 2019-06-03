@@ -6,20 +6,21 @@
 
     <fragment
         android:id="@+id/destination_all_games"
-        android:name="com.pdm.parcial1.Fragments.AllGamesFragment"
-        android:label="All Games"
-        tools:layout="@layout/fragment_all_games" >
-        <action android:id="@+id/next_action"
-                app:destination="@id/destination_game"/>
+        android:name="com.pdm.parcial1.UI.Fragments.AllGamesFragment"
+        android:label="All Matches"
+        tools:layout="@layout/fragment_all_games">
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_game" />
         <action
             android:id="@+id/next_action2"
             app:destination="@id/destination_live_game" />
     </fragment>
     <fragment
         android:id="@+id/destination_game"
-        android:name="com.pdm.parcial1.Fragments.GameFragment"
-        android:label="Game"
-        tools:layout="@layout/fragment_game" >
+        android:name="com.pdm.parcial1.UI.Fragments.GameFragment"
+        android:label="Match"
+        tools:layout="@layout/fragment_game">
         <argument
             android:name="localName"
             app:argType="string" />
@@ -47,28 +48,33 @@
     </fragment>
     <fragment
         android:id="@+id/destination_live_games"
-        android:name="com.pdm.parcial1.Fragments.AllLiveGamesFragment"
-        android:label="Live Games"
-        tools:layout="@layout/fragment_all_live_games" >
-        <action android:id="@+id/next_action"
-                app:destination="@id/destination_game"/>
+        android:name="com.pdm.parcial1.UI.Fragments.AllLiveGamesFragment"
+        android:label="Live Matches"
+        tools:layout="@layout/fragment_all_live_games">
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_game" />
         <action
             android:id="@+id/next_action2"
             app:destination="@id/destination_live_game" />
     </fragment>
     <fragment
         android:id="@+id/destination_new_game"
-        android:name="com.pdm.parcial1.Fragments.NewGameFragment"
-        android:label="New Game"
-        tools:layout="@layout/fragment_new_game" >
+        android:name="com.pdm.parcial1.UI.Fragments.NewGameFragment"
+        android:label="New Match"
+        tools:layout="@layout/fragment_new_game">
         <action
             android:id="@+id/next_action"
             app:destination="@id/destination_game" />
-        <action android:id="@+id/next_action2"
-                app:destination="@id/destination_live_game"/>
+        <action
+            android:id="@+id/next_action2"
+            app:destination="@id/destination_all_games" />
     </fragment>
-    <fragment android:id="@+id/destination_live_game" android:name="com.pdm.parcial1.Fragments.LiveGameFragment"
-              android:label="Live Game" tools:layout="@layout/fragment_live_game">
+    <fragment
+        android:id="@+id/destination_live_game"
+        android:name="com.pdm.parcial1.UI.Fragments.LiveGameFragment"
+        android:label="Live Match"
+        tools:layout="@layout/fragment_live_game">
         <argument
             android:name="localName"
             app:argType="string" />
@@ -96,7 +102,9 @@
         <argument
             android:name="idMatch"
             app:argType="string" />
-        <action android:id="@+id/popup_action"
-                app:destination="@+id/destination_all_games" app:popUpTo="@+id/destination_all_games"/>
+        <action
+            android:id="@+id/popup_action"
+            app:destination="@+id/destination_all_games"
+            app:popUpTo="@+id/destination_all_games" />
     </fragment>
 </navigation>

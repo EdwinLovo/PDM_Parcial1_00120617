@@ -1,4 +1,4 @@
-package com.pdm.parcial1.Fragments
+package com.pdm.parcial1.UI.Fragments
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 
@@ -53,11 +54,13 @@ class NewGameFragment : Fragment() {
                 state.setText("")
 
                 if (stateInt==1){
-                    val nextAction = NewGameFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString(),match.id.toString())
+                    val nextAction = NewGameFragmentDirections.nextAction2()
                     Navigation.findNavController(it).navigate(nextAction)
+                    Toast.makeText(it.context, "Match created", Toast.LENGTH_LONG).show()
                 } else {
                     val nextAction = NewGameFragmentDirections.nextAction(match.local, match.visitor, match.localScore.toString(), match.visitorScore.toString(), match.date, match.time, match.winner, match.state.toString())
                     Navigation.findNavController(it).navigate(nextAction)
+                    Toast.makeText(it.context, "Match created", Toast.LENGTH_LONG).show()
                 }
 
             } catch (e:Exception){}
