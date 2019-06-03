@@ -83,6 +83,27 @@
                     android:gravity="center"
                     android:text="0"/>
 
+                <Button
+                    android:id="@+id/localPlus3"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+3"/>
+
+                <Button
+                    android:id="@+id/localPlus2"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+2"/>
+
+                <Button
+                    android:id="@+id/localPlus1"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+1"/>
+
             </LinearLayout>
 
             <LinearLayout
@@ -120,6 +141,27 @@
                     android:layout_margin="8dp"
                     android:gravity="center"
                     android:text="0"/>
+
+                <Button
+                    android:id="@+id/visitorPlus3"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+3"/>
+
+                <Button
+                    android:id="@+id/visitorPlus2"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+2"/>
+
+                <Button
+                    android:id="@+id/visitorPlus1"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="+1"/>
 
             </LinearLayout>
 

@@ -35,8 +35,13 @@ class AllGamesFragment : Fragment() {
         var adapter = object : AllMatchesAdapter(view.context){
             override fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match) {
                 holder.container.setOnClickListener {
-                    val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, match.winner,match.state.toString())
-                    Navigation.findNavController(it).navigate(nextAction)
+                    if (match.state==1){
+                        val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString())
+                        Navigation.findNavController(it).navigate(nextAction)
+                    } else {
+                        val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, match.winner,match.state.toString())
+                        Navigation.findNavController(it).navigate(nextAction)
+                    }
                 }
             }
         }

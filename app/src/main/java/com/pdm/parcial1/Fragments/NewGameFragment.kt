@@ -33,14 +33,11 @@ class NewGameFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
         createMatch.setOnClickListener {
-            var stateInt:Int
+            var stateInt = 0
             if (state.text.toString().toUpperCase()=="LIVE"){
                 stateInt=1
-            } else if (state.text.toString().toUpperCase()=="FINISHED") {
-                stateInt=0
-            } else {
-                stateInt = 2
             }
+
             val match = Match(localName.text.toString(), visitorName.text.toString(),
                     localScore.text.toString().toInt(), visitorScore.text.toString().toInt(),
                     "unkown", stateInt, time.text.toString(), date.text.toString())
@@ -54,8 +51,15 @@ class NewGameFragment : Fragment() {
                 date.setText("")
                 time.setText("")
                 state.setText("")
-                val nextAction = NewGameFragmentDirections.nextAction(match.local, match.visitor, match.localScore.toString(), match.visitorScore.toString(), match.date, match.time, match.winner, match.state.toString())
-                Navigation.findNavController(it).navigate(nextAction)
+
+                if (stateInt==1){
+                    val nextAction = NewGameFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString())
+                    Navigation.findNavController(it).navigate(nextAction)
+                } else {
+                    val nextAction = NewGameFragmentDirections.nextAction(match.local, match.visitor, match.localScore.toString(), match.visitorScore.toString(), match.date, match.time, match.winner, match.state.toString())
+                    Navigation.findNavController(it).navigate(nextAction)
+                }
+
             } catch (e:Exception){}
         }
     }
