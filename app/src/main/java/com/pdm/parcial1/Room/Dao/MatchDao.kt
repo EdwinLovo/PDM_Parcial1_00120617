@@ -16,6 +16,9 @@ interface MatchDao {
     @Query("select * from `match` order by date desc")
     fun getAllMatches():LiveData<List<Match>>
 
+    @Query("select * from `match` where id=:idMatch")
+    fun getMatch(idMatch: Int):LiveData<Match>
+
     @Query("select * from `match` where state=1 order by date desc")
     fun getLiveMatches():LiveData<List<Match>>
 
@@ -30,5 +33,11 @@ interface MatchDao {
 
     @Query("update `match` set winner=:winner where id=:idMatch")
     suspend fun updateWinner(idMatch:Int, winner:String)
+
+    @Query("update `match` set local_score=:score where id=:idMatch")
+    suspend fun updateLocalScore(idMatch: Int,score:Int)
+
+    @Query("update `match` set visitor_score=:score where id=:idMatch")
+    suspend fun updateVisitorScore(idMatch: Int,score:Int)
 
 }

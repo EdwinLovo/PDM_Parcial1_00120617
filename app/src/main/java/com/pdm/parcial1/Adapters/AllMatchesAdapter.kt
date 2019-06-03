@@ -37,9 +37,12 @@ abstract class AllMatchesAdapter internal constructor(context: Context):Recycler
         holder.date.text = currentMatch.date
         holder.time.text = currentMatch.time
         holder.winner.text = currentMatch.winner
-        holder.state.text = currentMatch.state.toString()
-        if (holder.state.text=="1"){
-            Log.d("CODIGO", "sdfsf")
+        if (currentMatch.state==1){
+            holder.state.text = "LIVE"
+            holder.state.isEnabled = true
+        } else {
+            holder.state.text = "FINISHED"
+            holder.state.isEnabled = false
         }
 
         setClickListenerToMatch(holder,currentMatch)

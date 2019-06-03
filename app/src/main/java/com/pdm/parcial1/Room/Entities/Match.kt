@@ -17,7 +17,7 @@ data class Match(
         @ColumnInfo(name = "local_score")
         var localScore:Int,
 
-        @ColumnInfo(name = "visitorScore")
+        @ColumnInfo(name = "visitor_score")
         var visitorScore:Int,
 
         @ColumnInfo(name = "winner")

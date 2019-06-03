@@ -93,5 +93,10 @@
         <argument
             android:name="state"
             app:argType="string" />
+        <argument
+            android:name="idMatch"
+            app:argType="string" />
+        <action android:id="@+id/popup_action"
+                app:destination="@+id/destination_all_games" app:popUpTo="@+id/destination_all_games"/>
     </fragment>
 </navigation>

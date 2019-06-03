@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 
 import com.pdm.parcial1.R
 import com.pdm.parcial1.ViewModel.MatchViewModel
@@ -27,6 +29,8 @@ class LiveGameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var idMatch = 0
+
         arguments?.let {
             val safeArgs = LiveGameFragmentArgs.fromBundle(it)
             localName.text = safeArgs.localName
@@ -37,14 +41,57 @@ class LiveGameFragment : Fragment() {
             time.text = safeArgs.time
             winner.text = safeArgs.winner
             stateButton.text = safeArgs.state
+            idMatch = safeArgs.idMatch.toInt()
         }
 
         viewModel = ViewModelProviders.of(this).get(MatchViewModel::class.java)
 
+        viewModel.match?.observe(this, Observer { match ->
+            match?.let {
+                visitorScore.text = it.visitorScore.toString()
+                localScore.text = it.localScore.toString()
+            }
+        })
+
+        stateButton.setOnClickListener {
+            viewModel.updateMatchState(idMatch,0)
+            Navigation.findNavController(it).navigate(R.id.popup_action)
+        }
 
         localPlus1.setOnClickListener {
             var score = localScore.text.toString().toInt() + 1
+            viewModel.updateLocalScore(idMatch,score)
+            localScore.text = score.toString()
+        }
 
+        localPlus2.setOnClickListener {
+            var score = localScore.text.toString().toInt() + 2
+            viewModel.updateLocalScore(idMatch,score)
+            localScore.text = score.toString()
+        }
+
+        localPlus3.setOnClickListener {
+            var score = localScore.text.toString().toInt() + 3
+            viewModel.updateLocalScore(idMatch,score)
+            localScore.text = score.toString()
+        }
+
+        visitorPlus1.setOnClickListener {
+            var score = visitorScore.text.toString().toInt() + 1
+            viewModel.updateVisitorScore(idMatch,score)
+            visitorScore.text = score.toString()
+        }
+
+        visitorPlus2.setOnClickListener {
+            var score = visitorScore.text.toString().toInt() + 2
+            viewModel.updateVisitorScore(idMatch,score)
+            visitorScore.text = score.toString()
+        }
+
+        visitorPlus3.setOnClickListener {
+            var score = visitorScore.text.toString().toInt() + 3
+            viewModel.updateVisitorScore(idMatch,score)
+            visitorScore.text = score.toString()
         }
 
     }

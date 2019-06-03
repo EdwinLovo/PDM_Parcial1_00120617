@@ -37,10 +37,8 @@ abstract class LiveGamesAdapter internal constructor(context: Context):RecyclerV
         holder.date.text = currentMatch.date
         holder.time.text = currentMatch.time
         holder.winner.text = currentMatch.winner
-        holder.state.text = currentMatch.state.toString()
-        if (holder.state.text=="1"){
-            Log.d("CODIGO", "sdfsf")
-        }
+        holder.state.text = "LIVE"
+
         setClickListenerToLiveGames(holder,currentMatch)
     }
 

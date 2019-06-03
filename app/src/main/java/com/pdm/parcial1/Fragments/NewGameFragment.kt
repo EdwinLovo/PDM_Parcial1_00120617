@@ -53,7 +53,7 @@ class NewGameFragment : Fragment() {
                 state.setText("")
 
                 if (stateInt==1){
-                    val nextAction = NewGameFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString())
+                    val nextAction = NewGameFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString(),match.id.toString())
                     Navigation.findNavController(it).navigate(nextAction)
                 } else {
                     val nextAction = NewGameFragmentDirections.nextAction(match.local, match.visitor, match.localScore.toString(), match.visitorScore.toString(), match.date, match.time, match.winner, match.state.toString())

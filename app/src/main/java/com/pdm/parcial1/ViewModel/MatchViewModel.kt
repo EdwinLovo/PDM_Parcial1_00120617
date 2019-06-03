@@ -15,6 +15,7 @@ class MatchViewModel(app:Application):AndroidViewModel(app) {
     private val matchRepository:MatchRepository
     val allMatches:LiveData<List<Match>>
     val allLiveMatches:LiveData<List<Match>>
+    var match:LiveData<Match>?=null
 
     init {
         val matchDao = BasketBallDB.getInstance(app, viewModelScope).matchDao()
@@ -25,6 +26,16 @@ class MatchViewModel(app:Application):AndroidViewModel(app) {
 
     fun insertMatch(match: Match) = viewModelScope.launch(Dispatchers.IO){
         matchRepository.insert(match)
+    }
+
+    fun updateLocalScore(id: Int,score:Int) = viewModelScope.launch(Dispatchers.IO){
+        matchRepository.updateLocalScore(id,score)
+        match = matchRepository.getMatch(id)
+    }
+
+    fun updateVisitorScore(id: Int,score:Int) = viewModelScope.launch(Dispatchers.IO){
+        matchRepository.updateVisitorScore(id,score)
+        match = matchRepository.getMatch(id)
     }
 
     fun updateWinner(id:Int,winner:String) = viewModelScope.launch(Dispatchers.IO){

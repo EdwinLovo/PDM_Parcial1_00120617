@@ -36,11 +36,17 @@ class AllGamesFragment : Fragment() {
             override fun setClickListenerToMatch(holder: AllMatchesViewHolder, match: Match) {
                 holder.container.setOnClickListener {
                     if (match.state==1){
-                        val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString())
+                        val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString(),match.id.toString())
                         Navigation.findNavController(it).navigate(nextAction)
                     } else {
                         val nextAction = AllGamesFragmentDirections.nextAction(match.local,match.visitor,match.localScore.toString(),match.visitorScore.toString(),match.date,match.time, match.winner,match.state.toString())
                         Navigation.findNavController(it).navigate(nextAction)
+                    }
+                }
+
+                if (match.state==1){
+                    holder.state.setOnClickListener {
+                        viewModel.updateMatchState(match.id,0)
                     }
                 }
             }

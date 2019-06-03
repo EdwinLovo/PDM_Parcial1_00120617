@@ -11,6 +11,8 @@ class MatchRepository(private val matchDao: MatchDao) {
 
     fun getLiveMatches():LiveData<List<Match>> = matchDao.getLiveMatches()
 
+    fun getMatch(id: Int):LiveData<Match> = matchDao.getMatch(id)
+
     @WorkerThread
     suspend fun insert(match: Match) = matchDao.insert(match)
 
@@ -25,4 +27,11 @@ class MatchRepository(private val matchDao: MatchDao) {
 
     @WorkerThread
     suspend fun updateMatchState(id:Int, state:Int) = matchDao.updateMatchState(id,state)
+
+    @WorkerThread
+    suspend fun updateLocalScore(id: Int,score:Int) = matchDao.updateLocalScore(id,score)
+
+    @WorkerThread
+    suspend fun updateVisitorScore(id: Int,score: Int) = matchDao.updateVisitorScore(id,score)
+
 }

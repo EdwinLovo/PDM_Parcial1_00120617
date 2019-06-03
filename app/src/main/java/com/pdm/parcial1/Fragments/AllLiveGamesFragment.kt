@@ -37,10 +37,16 @@ class AllLiveGamesFragment : Fragment() {
         var adapter = object : LiveGamesAdapter(view.context){
             override fun setClickListenerToLiveGames(holder: LiveMatchesViewHolder, match: Match) {
                 holder.container.setOnClickListener {
-                    val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString())
+                    val nextAction = AllGamesFragmentDirections.nextAction2(match.local,match.localScore.toString(),match.visitorScore.toString(),match.visitor,match.date,match.time,match.winner,match.state.toString(),match.id.toString())
                     Navigation.findNavController(it).navigate(nextAction)
                 }
+                if (match.state==1){
+                    holder.state.setOnClickListener {
+                        viewModel.updateMatchState(match.id,0)
+                    }
+                }
             }
+
         }
         val recyclerView = view.liveGamesRecyclerView
         recyclerView.adapter = adapter
