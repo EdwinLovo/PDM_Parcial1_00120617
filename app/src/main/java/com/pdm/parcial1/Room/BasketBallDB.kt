@@ -1,6 +1,7 @@
 package com.pdm.parcial1.Room
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -27,31 +28,10 @@ abstract  class BasketBallDB:RoomDatabase() {
                 val instance = Room
                     .databaseBuilder(appContext, BasketBallDB::class.java, "basketball_db")
                     .fallbackToDestructiveMigration()
-                    .addCallback(DatabaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance
             }
-        }
-    }
-
-    private class DatabaseCallback(private val scope: CoroutineScope):RoomDatabase.Callback(){
-        override fun onOpen(db: SupportSQLiteDatabase) {
-            super.onOpen(db)
-            INSTANCE?.let {
-                scope.launch(Dispatchers.IO){
-                    populateDatabase(it.matchDao())
-                }
-            }
-        }
-
-        suspend fun populateDatabase(matchDao: MatchDao){
-            //matchDao.deleteAll()
-
-            var match = Match("Lakers", "Warriors", 3, 0, "unknown", 1, "14:30", "20/05/2019")
-            matchDao.insert(match)
-            match = Match("Heat", "Rockets", 8, 2, "Heat", 0, "12:00", "20/05/2015")
-            matchDao.insert(match)
         }
     }
 
